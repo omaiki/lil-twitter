@@ -1,7 +1,7 @@
 # Posts INDEX
 get '/users/:user_id/posts' do
 	@user = User.find(params[:user_id])
-	@posts = Post.all
+	@posts = @user.posts
 	erb :'posts/index'
 end
 
@@ -29,12 +29,20 @@ post '/users/:user_id/posts' do
 		erb :'posts/new'
 end
 
-# Posts EDIT
-get '/users/:user_id/posts/:id/edit'
+# Posts DESTROY
+delete '/users/:user_id/posts/:id' do
 	@user = User.find(params[:user_id])
 	@post = Post.find(params[:id])
-	erb :'posts/edit'
+	Post.destroy(params[:id])
+	redirect '/users/:user_id/posts'
 end
+
+# Posts EDIT -- Not used because you can't edit tweets
+# get '/users/:user_id/posts/:id/edit'
+# 	@user = User.find(params[:user_id])
+# 	@post = Post.find(params[:id])
+# 	erb :'posts/edit'
+# end
 
 # Posts UPDATE -- Not used because you can't edit tweets
 # put '/users/:user_id/posts/:id'
@@ -42,9 +50,3 @@ end
 # 	@post = Post.find(params[:id])
 # 	@post
 # end
-
-# Posts DESTROY
-delete '/users/:user_id/posts/:id' do
-	Post.destroy(params[:id])
-	redirect '/users/:user_id/posts'
-end
