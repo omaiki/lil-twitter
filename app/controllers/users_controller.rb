@@ -21,8 +21,6 @@ post '/users' do
     @errors = @user.errors.full_messages
     erb :"users/new"
   end
-<<<<<<< HEAD
-=======
 end
 
 get '/users/:id' do
@@ -38,6 +36,5 @@ end
 
 # Users search results
 get '/users/search/results' do
-  
->>>>>>> 1719886899c26cf8305a95ac78b5385023a7010c
+
 end

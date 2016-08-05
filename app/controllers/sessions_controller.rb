@@ -6,9 +6,7 @@ end
 # Sessions CREATE
 post '/sessions' do
 #MAKE SURE THIS MATCHES UP WITH PAIR 
- p "*" * 100
- p @user = User.find_by(username: params[:username])
- p "*" * 100
+@user = User.find_by(username: params[:username])
  if @user
    if @user.authenticate(params[:password])
      session[:id] = @user.id
