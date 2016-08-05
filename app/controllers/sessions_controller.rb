@@ -9,6 +9,7 @@ end
 
 # Sessions CREATE
 post '/sessions' do
+#MAKE SURE THIS MATCHES UP WITH PAIR 
  @user = User.find_by(username: params[:user][:username])
  if @user
    if @user.authenticate(params[:user][:password])
