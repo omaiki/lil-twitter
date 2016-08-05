@@ -20,5 +20,16 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id])
-  erb :"/users/show"
+  # This should really just render erb :'/posts/index'
+  erb :"/posts/index"
+end
+
+# Users Search
+get '/users/search' do
+  erb :'users/search'
+end
+
+# Users search results
+get '/users/search/results' do
+  
 end
