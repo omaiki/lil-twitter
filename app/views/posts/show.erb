@@ -1,0 +1,11 @@
+<div class="container">
+	<p class="tweet">
+		<%= post.content %>
+	</p>
+	<br>
+	<br>
+	<form action="/users/<%= @user.id %>/posts/<%= @post.id %>" method="POST">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Destroy Forever">
+	</form>
+</div>
