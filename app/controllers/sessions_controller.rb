@@ -1,7 +1,3 @@
-get '/sessions/new' do
-  erb :'sessions/new'
-end
-
 # Sessions NEW
 get '/sessions/new' do
  erb :'sessions/new'
@@ -10,9 +6,11 @@ end
 # Sessions CREATE
 post '/sessions' do
 #MAKE SURE THIS MATCHES UP WITH PAIR 
- @user = User.find_by(username: params[:user][:username])
+ p "*" * 100
+ p @user = User.find_by(username: params[:username])
+ p "*" * 100
  if @user
-   if @user.authenticate(params[:user][:password])
+   if @user.authenticate(params[:password])
      session[:id] = @user.id
      redirect "/users/#{@user.id}"
    else
