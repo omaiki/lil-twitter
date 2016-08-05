@@ -36,9 +36,15 @@ get '/users/:user_id/posts/:id/edit'
 	erb :'posts/edit'
 end
 
-# Posts UPDATE
-put '/users/:user_id/posts/:id'
-	@user = User.find(params[:user_id])
-	@post = Post.find(params[:id])
-	@post
+# Posts UPDATE -- Not used because you can't edit tweets
+# put '/users/:user_id/posts/:id'
+# 	@user = User.find(params[:user_id])
+# 	@post = Post.find(params[:id])
+# 	@post
+# end
+
+# Posts DESTROY
+delete '/users/:user_id/posts/:id' do
+	Post.destroy(params[:id])
+	redirect '/users/:user_id/posts'
 end
