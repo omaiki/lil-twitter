@@ -1,0 +1,11 @@
+<div class="container">
+  <h1> Login to lil' Twitter </h1>
+  <% if @error %>
+    <%= @error %>
+  <% end %>
+  <form action="/sessions" method="post">
+    Email: <input type="text" name="email" placeholder="email"><br>
+    Password: <input type="password" name="password" placeholder="password"><br>
+    <input type="submit" value="Login">
+  </form>
+</div>
