@@ -27,6 +27,7 @@ post '/users/:user_id/posts' do
 	else
 		@errors = @post.errors.full_messages
 		erb :'posts/new'
+	end
 end
 
 # Posts DESTROY

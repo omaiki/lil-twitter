@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+  def self.search(username)
+    User.where('name LIKE', '%#{username}%')
+  end
+  
   def password 
     @password ||= Password.new(password_hash)
   end
