@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 # PostgreSQL driver
 gem 'pg'
 
+# BCrypt
+gem 'bcrypt'
+
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
