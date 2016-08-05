@@ -7,6 +7,11 @@ get '/users/new' do
   erb :"users/new"
 end
 
+get '/users/:id' do
+  @user = User.find(params[:id])
+  erb :"/users/show"
+end
+
 post '/users' do
   @user = User.new(params[:user])
   if @user.save
@@ -31,5 +36,5 @@ end
 
 # Users search results
 get '/users/search/results' do
-  
+
 end

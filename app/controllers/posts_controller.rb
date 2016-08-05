@@ -7,7 +7,8 @@ end
 
 # Posts NEW
 get '/users/:user_id/posts/new' do
-	@user = User.find(params[:user_id])
+	p session[:id]
+	@user = User.find(session[:id])
 	erb :'posts/new'
 end
 
@@ -20,13 +21,14 @@ end
 
 # Posts CREATE
 post '/users/:user_id/posts' do
-	@user = User.find(params[:user_id])
-	@post = Post.new(params[:post])
+	@user = User.find(session[:id])
+	@post = Post.new(params[:content])
 	if @post.save
 		redirect "users/#{@user.id}/posts"
 	else
 		@errors = @post.errors.full_messages
 		erb :'posts/new'
+	end
 end
 
 # Posts DESTROY

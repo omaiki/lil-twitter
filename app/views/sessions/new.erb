@@ -3,8 +3,8 @@
   <% if @error %>
     <%= @error %>
   <% end %>
-  <form action="/sessions" method="post">
-    Email: <input type="text" name="email" placeholder="email"><br>
+  <form action="/sessions" method="POST">
+    Username: <input type="text" name="username" placeholder="Username"><br>
     Password: <input type="password" name="password" placeholder="password"><br>
     <input type="submit" value="Login">
   </form>
